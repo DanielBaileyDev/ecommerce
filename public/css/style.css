@@ -105,16 +105,17 @@ h1{
     margin-bottom: 60px;
 }
 
-/* .button{
+.button{
+    text-align: center;
     font-size: 1.8rem;
-    color: #6B9080;
-    background-color: #CCE3DE;
+    color: #F6FFF8;
+    background-color: #6B9080;
     padding: 15px 30px;
 }
 
 .button:hover{
     background-color: #A4C3B2;
-} */
+}
 
 /* Featured */
 section{
@@ -125,30 +126,29 @@ section{
 }
 
 h2{
+    display: inline-block;
     font-size: 3rem;
-    margin-bottom: 30px;
 }
 
-.featured-container{
-    width: 1000px;
+.product-container{
+    max-width: 1000px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.featured-product{
+.product{
     background-color: #f1f1f1;
     text-align: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    flex: 1;
     padding: 15px;
     margin: 25px 25px;
 }
 
-.featured-product > img {
+.product > img {
     width: 250px;
-    margin: auto;
 }
 
 h4{
@@ -157,20 +157,9 @@ h4{
     font-size: 2rem;
 }
 
-.featured-product > span {
+.product > span {
     margin-bottom: 15px;
     font-size: 1.8rem;
-}
-
-.button{
-    font-size: 1.8rem;
-    color: #F6FFF8;
-    background-color: #6B9080;
-    padding: 15px 30px;
-}
-
-.button:hover{
-    background-color: #A4C3B2;
 }
 
 /* Footer */
@@ -190,4 +179,65 @@ footer {
 
 .footer-container > span{
     font-size: 1.4rem;
+}
+
+/* Admin */
+.admin-container{
+    max-width: 1000px;
+}
+
+.bar{
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.create{
+    background-color: rgb(53, 187, 91);
+    position: absolute;
+    right: 0;
+}
+
+.create:hover{
+    background-color: rgb(62, 217, 106);
+}
+
+textarea, label, input {
+    font-size: 1.6rem;
+    resize: none;
+}
+
+form {
+    background-color: #f1f1f1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form-column{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+input {
+    margin-bottom: 15px;
+}
+
+.save {
+    margin-bottom: 15px;
+    background-color: rgb(53, 124, 187);
+}
+
+.save:hover{
+    background-color: rgb(65, 151, 227);
+}
+
+.delete {
+    background-color: rgb(187, 53, 53);
+}
+
+.delete:hover{
+    background-color: rgb(220, 63, 63);
 }

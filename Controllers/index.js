@@ -1,11 +1,11 @@
-//const Todo = require('../models/Todo');
+const product = require('../Models/product');
 
 module.exports = {
-    getIndex: async (req, res) => {
+    getFeatured: async (req, res) => {
         try{
-            /*const todoItems = await Todo.find()
-            const itemsLeft = await Todo.countDocuments({completed: false})*/
-            res.render('index.ejs'/*, {todos: todoItems, left: itemsLeft}*/);
+            const products = await product.find({featured: true});
+            //const productsLeft = await product.countDocuments({completed: false});
+            res.render('index.ejs', {products: products});
         }catch(err){
             console.log(err);
         }

@@ -51,25 +51,15 @@
     </main>
     <section>
         <h2>Featured</h2>
-        <div class="featured-container">
-            <div class="featured-product">
+        <div class="product-container">
+            <% products.forEach(product=> { %>
+            <div class="product">
                 <img src="/imgs/product.jpg">
-                <h4>Slick Shirt</h4>
-                <span>$9.99</span>
+                <h4><%= product.name %></h4>
+                <span><%= product.price %></span>
                 <a href="#" class="button">View</a>
             </div>
-            <div class="featured-product">
-                <img src="/imgs/product.jpg">
-                <h4>Black Shirt</h4>
-                <span>$17.99</span>
-                <a href="#" class="button">View</a>
-            </div>
-            <div class="featured-product">
-                <img src="/imgs/product.jpg">
-                <h4>Slick Black Shirt</h4>
-                <span>$25.99</span>
-                <a href="#" class="button">View</a>
-            </div>
+            <% }) %>
         </div>
     </section>
     <footer>

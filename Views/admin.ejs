@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="/fontawesome/fontawesome.js"></script>
+    <script src="/fontawesome/solid.js"></script>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa-solid fa-tags logo-icon"></i>
+                <h3>Ecommerce</h3>
+            </div>
+            <nav>
+                <ul>
+                    <a href="/">
+                        <li class="header-link">Home</li>
+                    </a><!--
+                --><a href="/products">
+                        <li class="header-link active">Products</li>
+                    </a><!--
+                --><a href="#">
+                        <li class="header-link">About</li>
+                    </a>
+                </ul>
+            </nav>
+            <div class="login">
+                <a href="#">Login</a>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="admin-container">
+            <div class="bar">
+                <h2>Admin</h2>
+                <a href="" class="button create">New Product</a>
+            </div>
+            <% products.forEach(product=> { %>
+                <form action="/admin/updateProduct">
+                    <div class="form-column">
+                        <label for="image<%= product._id %>">Image:</label>
+                        <input type="file" name="image" id="image<%= product._id %>" accept="image/png, image/jpeg">
+                        <label for="name<%= product._id %>">Name:</label>
+                        <input type="text" name="name" id="name<%= product._id %>" value="<%= product.name %>">
+                        <label for="price<%= product._id %>">Price:</label>
+                        <input type="text" name="price" id="price<%= product._id %>" value="<%= product.price %>">
+                        <div>
+                            <label for="featured<%= product._id %>">Featured:</label>
+                            <input type="checkbox" name="featured" id="featured<%= product._id %>" <%= product.featured ? "checked" : "" %>>
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <label for="description<%= product._id %>">Description:</label>
+                        <textarea name="description" id="description<%= product._id %>" rows="5" cols="50"></textarea>
+                    </div>
+                    <div class="form-column">
+                        <a data-id="<%= product._id %>" class="button save">Save</a>
+                        <a data-id="<%= product._id %>" class="button delete">Delete</a>
+                    </div>
+                </form>
+                <% }) %>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <span>© Daniel 2022</span>
+        </div>
+    </footer>
+    <script src="/js/admin.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
