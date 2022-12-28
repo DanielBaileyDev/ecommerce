@@ -1,7 +1,7 @@
 document.getElementsByClassName('create')[0].addEventListener('click', createProduct);
 
 const saveButtons = document.querySelectorAll('.save');
-saveButtons.forEach(button=>button.addEventListener('click', updateProduct));
+saveButtons.forEach(button=>button.addEventListener('click', /*updateProduct*/uploadImage));
 
 const deleteButtons = document.querySelectorAll('.delete');
 deleteButtons.forEach(button=>button.addEventListener('click', deleteProduct));
@@ -50,4 +50,31 @@ async function deleteProduct(e){
     }catch(err){
         console.log(err)
     }
+}
+
+// Multer
+function uploadImage(e) {
+    //  Uploading image, this does all the magic!, the file variable can also be a blob file
+    const id = e.srcElement.dataset.id;
+    let form = new FormData(),
+        file = document.getElementById('image'+id).files[0],
+        request = new XMLHttpRequest();
+    form.append("file", file, id);
+    form.append("_id", id);
+    form.append("name", document.getElementById('name'+id).value);
+    form.append("price", document.getElementById('price'+id).value);
+    form.append("featured", document.getElementById('featured'+id).checked);
+    //form.append();
+    request.onreadystatechange = function() {
+        if (this.readyState != 4) return;
+        if (this.status == 200) {
+            //var data = JSON.parse(this.responseText);
+            //console.log(data);
+            // Getting image url out of file source
+            //const imageUrl = "https://fileuploadexample.abaanshanid.repl.co/uploads/" + data.filename;
+            //document.getElementById("image").src = imageUrl;
+        }
+    };
+    request.open("POST", "/upload/", true);
+    request.send(form);
 }

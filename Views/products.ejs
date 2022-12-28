@@ -50,7 +50,7 @@
         <div class="product-container">
             <% products.forEach(product=> { %>
                 <div class="product">
-                    <img src="/imgs/product.jpg">
+                    <img src="<%= product.img %>">
                     <h4><%= product.name %></h4>
                     <span><%= product.price %></span>
                     <a href="#" class="button">View</a>

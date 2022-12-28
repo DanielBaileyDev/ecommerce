@@ -1,4 +1,6 @@
 const product = require('../Models/product');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = {
     getProducts: async (req, res) => {
@@ -41,6 +43,11 @@ module.exports = {
         try{
             await product.deleteOne({
                 _id: req.body._id
+            });
+            fs.unlink(path.join(__dirname, '..', '/public/uploads/', req.body._id + `.jpg`), (err) => {
+                if (err) {
+                    throw err;
+                }
             });
             res.redirect('/admin');
         }catch(err){
