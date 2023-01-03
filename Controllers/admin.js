@@ -44,7 +44,7 @@ module.exports = {
             await product.deleteOne({
                 _id: req.body._id
             });
-            fs.unlink(path.join(__dirname, '..', '/public/uploads/', req.body._id + `.jpg`), (err) => {
+            fs.unlink(path.join(__dirname, '..', '/public', req.body.img), (err) => {
                 if (err) {
                     throw err;
                 }
