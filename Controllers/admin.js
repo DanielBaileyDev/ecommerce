@@ -25,26 +25,27 @@ module.exports = {
         }
     },
     updateProduct: async (req, res) => {
-        try{
+        try {
             await product.replaceOne({
-                _id: req.body._id
+              _id: req.body._id
             },
-            {
-                name: req.body.name, 
+              {
+                img: '/uploads/' + req.file.filename,
+                name: req.body.name,
                 price: req.body.price,
                 featured: req.body.featured,
-            });
+              });
             res.redirect('/admin');
-        }catch(err){
+          } catch (err) {
             console.log(err);
-        }
+          }
     },
     deleteProduct: async (req, res) => {
         try{
-            await product.deleteOne({
+            const productDetails = await product.findOneAndDelete({
                 _id: req.body._id
             });
-            fs.unlink(path.join(__dirname, '..', '/public', req.body.img), (err) => {
+            fs.unlink(path.join(__dirname, '..', '/public', productDetails.img), (err) => {
                 if (err) {
                     throw err;
                 }

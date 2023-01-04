@@ -38,6 +38,7 @@ async function updateProduct(e){
 
 async function deleteProduct(e){
     try{
+        console.log(e);
         const id = e.srcElement.dataset.id;
         const response = await fetch('admin/deleteProduct', {
             method: 'delete',
@@ -75,6 +76,6 @@ function uploadImage(e) {
             //document.getElementById("image").src = imageUrl;
         }
     };
-    request.open("POST", "/upload/", true);
+    request.open("PUT", "/admin/updateProduct/", true);
     request.send(form);
 }

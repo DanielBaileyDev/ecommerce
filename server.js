@@ -31,36 +31,3 @@ app.use('/admin', adminRoutes);
 app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`);
 });
-
-// Multer
-const product = require('./Models/product');
-const multer = require('multer');
-const path = require('path');
-
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, __dirname + '/public/uploads/')
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname+(file.mimetype === 'image/jpeg' ? '.jpg' : '.png')) //Appending extension
-  }
-});
-
-const upload = multer({ storage: storage });
-
-app.post('/upload', upload.single('file'), async function (req, res) {
-  try {
-    await product.replaceOne({
-      _id: req.body._id
-    },
-      {
-        img: '/uploads/' + req.file.filename,
-        name: req.body.name,
-        price: req.body.price,
-        featured: req.body.featured,
-      });
-    res.redirect('/admin');
-  } catch (err) {
-    console.log(err);
-  }
-});
