@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const adminController = require('../Controllers/admin');
+const { ensureAuth } = require('../config/ensureauth');
 
 //const product = require('../Models/product');
 const multer = require('multer');
@@ -17,7 +18,7 @@ var storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.get('/', adminController.getProducts);
+router.get('/', ensureAuth, adminController.getProducts);
 
 router.post('/createProduct', adminController.createProduct);
 

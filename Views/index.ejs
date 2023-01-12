@@ -53,15 +53,36 @@
         <h2>Featured</h2>
         <div class="product-container">
             <% products.forEach(product=> { %>
-            <div class="product">
-                <img src="<%= product.img %>">
-                <h4><%= product.name %></h4>
-                <span><%= product.price %></span>
-                <a href="#" class="button">View</a>
-            </div>
-            <% }) %>
+                <div class="product">
+                    <img src="<%= product.img %>">
+                    <h4>
+                        <%= product.name %>
+                    </h4>
+                    <span>
+                        <%= product.price %>
+                    </span>
+                    <a href="#" class="button">View</a>
+                </div>
+                <% }) %>
         </div>
     </section>
+    <section>
+        <form action="/signup" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+            <input type="submit">
+        </form>
+    </section>
+    <section>
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit">
+        </form>
+    </section>
+    <a href="/logout">Logout</a>
     <footer>
         <div class="footer-container">
             <span>© Daniel 2022</span>
