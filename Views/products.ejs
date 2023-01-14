@@ -21,30 +21,7 @@
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <i class="fa-solid fa-tags logo-icon"></i>
-                <h3>Ecommerce</h3>
-            </div>
-            <nav>
-                <ul>
-                    <a href="/">
-                        <li class="header-link">Home</li>
-                    </a><!--
-                --><a href="/products">
-                        <li class="header-link active">Products</li>
-                    </a><!--
-                --><a href="#">
-                        <li class="header-link">About</li>
-                    </a>
-                </ul>
-            </nav>
-            <div class="login">
-                <a href="#">Login</a>
-            </div>
-        </div>
-    </header>
+    <%- include('partials/header') -%>
     <section>
         <h2>Products</h2>
         <div class="product-container">
@@ -58,11 +35,7 @@
                 <% }) %>
         </div>
     </section>
-    <footer>
-        <div class="footer-container">
-            <span>© Daniel 2022</span>
-        </div>
-    </footer>
+    <%- include('partials/footer') -%>
     <script src="/js/main.js"></script>
 </body>
 

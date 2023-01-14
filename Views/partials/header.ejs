@@ -1,0 +1,33 @@
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <i class="fa-solid fa-tags logo-icon"></i>
+            <h3>Ecommerce</h3>
+        </div>
+        <nav>
+            <ul>
+                <a href="/">
+                    <li class="header-link <% if(url === ''){ %>active<% } %>">Home</li>
+                </a><!--
+                --><a href="/products">
+                    <li class="header-link <% if(url === '/products'){ %>active<% } %>">Products</li>
+                </a><!--
+                --><a href="#">
+                    <li class="header-link <% if(url === '/about'){ %>active<% } %>">About</li>
+                </a>
+            </ul>
+        </nav>
+        <div class="login">
+            <% if(!loggedIn){ %>
+                <a href="#" class="header-link">Login</a>
+                <a href="#" class="header-link">Sign Up</a>
+                <% } else { %>
+                    <span class="header-link">
+                        <%= username %>
+                    </span>
+                    <a href="/admin" class="header-link <% if(url === '/admin'){ %>active<% } %>">Admin</a>
+                    <a href="#" class="header-link">Sign Out</a>
+                    <% } %>
+        </div>
+    </div>
+</header>
