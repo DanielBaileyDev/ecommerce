@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const adminController = require('../Controllers/admin');
 const { ensureAuth } = require('../config/ensureauth');
-
-//const product = require('../Models/product');
 const multer = require('multer');
 const path = require('path');
 
@@ -12,7 +10,7 @@ var storage = multer.diskStorage({
     cb(null, path.join(__dirname, '..', 'public', 'uploads'));
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname+(file.mimetype === 'image/jpeg' ? '.jpg' : '.png')) //Appending extension
+    cb(null, file.originalname + (file.mimetype === 'image/jpeg' ? '.jpg' : '.png'));
   }
 });
 

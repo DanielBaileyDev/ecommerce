@@ -2,9 +2,8 @@ const product = require('../Models/product');
 
 module.exports = {
     getFeatured: async (req, res) => {
-        try{
-            const products = await product.find({featured: true});
-            //const productsLeft = await product.countDocuments({completed: false});
+        try {
+            const products = await product.find({ featured: true });
             const loggedIn = req.user ? true : false;
             res.render('index.ejs', {
                 products: products,
@@ -12,7 +11,7 @@ module.exports = {
                 username: loggedIn ? req.user.username : null,
                 url: req.baseUrl,
             });
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     }

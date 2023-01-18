@@ -4,9 +4,8 @@ const path = require('path');
 
 module.exports = {
     getProducts: async (req, res) => {
-        try{
+        try {
             const products = await product.find();
-            //const productsLeft = await product.countDocuments({completed: false});
             const loggedIn = req.user ? true : false;
             res.render('admin.ejs', {
                 products: products,
@@ -14,40 +13,40 @@ module.exports = {
                 username: loggedIn ? req.user.username : null,
                 url: req.baseUrl,
             });
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     },
     createProduct: async (req, res) => {
-        try{
+        try {
             await product.create({
-                name: 'Name', 
+                name: 'Name',
                 price: '$0.00',
                 featured: false,
             });
             res.redirect('/admin');
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     },
     updateProduct: async (req, res) => {
         try {
             await product.replaceOne({
-              _id: req.body._id
+                _id: req.body._id
             },
-              {
-                img: '/uploads/' + req.file.filename,
-                name: req.body.name,
-                price: req.body.price,
-                featured: req.body.featured,
-              });
+                {
+                    img: '/uploads/' + req.file.filename,
+                    name: req.body.name,
+                    price: req.body.price,
+                    featured: req.body.featured,
+                });
             res.redirect('/admin');
-          } catch (err) {
+        } catch (err) {
             console.log(err);
-          }
+        }
     },
     deleteProduct: async (req, res) => {
-        try{
+        try {
             const productDetails = await product.findOneAndDelete({
                 _id: req.body._id
             });
@@ -57,7 +56,7 @@ module.exports = {
                 }
             });
             res.redirect('/admin');
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     },
