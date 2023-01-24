@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const adminController = require('../Controllers/admin');
-const { ensureAuth } = require('../config/ensureauth');
+const { ensureAuth, hasPermission, isAdmin } = require('../config/ensureauth');
 const multer = require('multer');
 const path = require('path');
 
@@ -16,13 +16,13 @@ var storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.get('/', ensureAuth, adminController.getProducts);
+router.get('/', ensureAuth, hasPermission, adminController.getProducts);
 
-router.post('/createProduct', adminController.createProduct);
+router.post('/createProduct', isAdmin, adminController.createProduct);
 
-router.put('/updateProduct', upload.single('file'), adminController.updateProduct);
+router.put('/updateProduct', isAdmin, upload.single('file'), adminController.updateProduct);
 
-router.delete('/deleteProduct', adminController.deleteProduct);
+router.delete('/deleteProduct', isAdmin, adminController.deleteProduct);
 
 
 module.exports = router;

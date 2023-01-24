@@ -20,7 +20,6 @@ module.exports = (passport) => {
                     }
                     return done(null, false, { msg: 'Invalid email or password.' });
                 });
-                return done(null, user);
             });
         }
     ));

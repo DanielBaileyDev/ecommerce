@@ -3,7 +3,7 @@ const User = require('../Models/user');
 
 module.exports = {
   login: (req, res) => {
-    res.redirect('back');
+    return res.redirect('back');
   },
   logout: (req, res) => {
     req.logout((err) => {
@@ -29,7 +29,8 @@ module.exports = {
     const user = new User({
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      role: 'User',
     });
 
     User.findOne({
@@ -49,7 +50,7 @@ module.exports = {
         if (err) {
           return next(err);
         }
-        req.logIn(user, (err) => {
+        req.login(user, (err) => {
           if (err) {
             return next(err);
           }
