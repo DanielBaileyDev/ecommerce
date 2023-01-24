@@ -258,15 +258,12 @@ footer {
 }
 
 /* Admin */
-.admin-container{
-    max-width: 1000px;
-}
-
 .bar{
     position: relative;
     width: 100%;
     margin-bottom: 30px;
     text-align: center;
+    width: 1000px;
 }
 
 .create{
@@ -279,31 +276,31 @@ footer {
     background-color: rgb(62, 217, 106);
 }
 
+.image{
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
 textarea, label, input {
     font-size: 1.6rem;
     resize: none;
 }
 
-.product-form {
-    background-color: #f1f1f1;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.form-column{
-    display: flex;
-    flex-direction: column;
-    margin: 15px;
-}
-
-input {
+input, textarea {
     margin-bottom: 15px;
+}
+
+label, .featured{
+    align-self: start;
+}
+
+.button-container{
+    display: flex;
 }
 
 .save {
-    margin-bottom: 15px;
     background-color: rgb(53, 124, 187);
+    flex: 1;
 }
 
 .save:hover{
@@ -312,8 +309,73 @@ input {
 
 .delete {
     background-color: rgb(187, 53, 53);
+    flex: 1;
 }
 
 .delete:hover{
     background-color: rgb(220, 63, 63);
+}
+
+.hidden{
+    display: none;
+}
+
+/* Product Page */
+.product-page-container{
+    max-width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-page-image{
+    width: 400px;
+}
+
+.product-info{
+    padding: 15px 30px;
+    width: 400px;
+}
+
+.product-info > h2{
+    margin-bottom: 15px;
+}
+
+.price, form > button{
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.product-info > p{
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.stripe-form{
+    margin-top: 30px;
+    width: 100%;
+}
+
+button.stripe-button-el{
+    background: #6B9080;
+    border-radius: 0;
+    width: 100%;
+    box-shadow: none;
+    margin-bottom: 0;
+}
+
+button.stripe-button-el:hover{
+    background-color: #A4C3B2;
+}
+
+button.stripe-button-el > span{
+    background: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    box-shadow: none;
+    padding: 3px 15px;
+    height: auto;
+    text-shadow: none;
 }

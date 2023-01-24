@@ -10,8 +10,7 @@ async function createProduct() {
     try {
         const response = await fetch('admin/createProduct', {
             method: 'post',
-        });
-        location.reload();
+        }).then((res) => { res.json() }).then(res => location.reload())
     } catch (err) {
         console.log(err);
     }
@@ -19,7 +18,6 @@ async function createProduct() {
 
 async function deleteProduct(e) {
     try {
-        console.log(e);
         const id = e.srcElement.dataset.id;
         const response = await fetch('admin/deleteProduct', {
             method: 'delete',
@@ -27,8 +25,7 @@ async function deleteProduct(e) {
             body: JSON.stringify({
                 _id: id
             })
-        });
-        location.reload();
+        }).then((res) => { res.json() }).then(res => location.reload())
     } catch (err) {
         console.log(err)
     }
@@ -39,21 +36,31 @@ function updateProduct(e) {
     let form = new FormData(),
         file = document.getElementById('image' + id).files[0],
         request = new XMLHttpRequest();
-    form.append("file", file, id);
+    if(file)
+        form.append("file", file, id);
     form.append("_id", id);
     form.append("name", document.getElementById('name' + id).value);
     form.append("price", document.getElementById('price' + id).value);
+    form.append("description", document.getElementById('description' + id).value);
     form.append("featured", document.getElementById('featured' + id).checked);
+    request.open("PUT", "/admin/updateProduct", true);
     request.onreadystatechange = function () {
         if (this.readyState != 4) return;
         if (this.status == 200) {
-            //var data = JSON.parse(this.responseText);
-            //console.log(data);
-            // Getting image url out of file source
-            //const imageUrl = "https://fileuploadexample.abaanshanid.repl.co/uploads/" + data.filename;
-            //document.getElementById("image").src = imageUrl;
+            location.reload();
         }
     };
-    request.open("PUT", "/admin/updateProduct/", true);
     request.send(form);
+}
+
+function changeImage(id) {
+    document.getElementById("image" + id).click();
+}
+
+function previewFile(input, id) {
+    let reader = new FileReader();
+    reader.onload = function (e) {
+        document.getElementById('output' + id).src = e.target.result;
+    }
+    reader.readAsDataURL(input.files[0]);
 }
