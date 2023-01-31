@@ -27,6 +27,7 @@
                 <h2>Admin</h2>
                 <a href="" class="button create">New Product</a>
             </div>
+            <input type="text" id="search-input" onkeyup="searchProducts()" placeholder="Search Products">
             <div class="product-container">
                 <% products.forEach(product=> { %>
                     <form class="product-form" action="/admin/updateProduct">
@@ -36,7 +37,7 @@
                             <input type="file" name="image" class="hidden" id="image<%= product._id %>"
                                 accept="image/png, image/jpeg" onchange="previewFile(this, '<%= product._id %>');">
                             <label for="name<%= product._id %>">Name:</label>
-                            <input type="text" name="name" id="name<%= product._id %>" value="<%= product.name %>">
+                            <input type="text" name="name" id="name<%= product._id %>" class="product-name" value="<%= product.name %>">
                             <label for="price<%= product._id %>">Price:</label>
                             <input type="text" name="price" id="price<%= product._id %>" value="<%= product.price %>">
                             <div class="featured">
