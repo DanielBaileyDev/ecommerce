@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const indexRoutes = require('./Routes/index');
 const productsRoutes = require('./Routes/products');
+const aboutRoutes = require('./Routes/about');
 const adminRoutes = require('./Routes/admin');
 const authRoutes = require('./Routes/auth');
 const connectDB = require('./config/database');
@@ -37,6 +38,7 @@ app.use('/', indexRoutes);
 app.use('/products', productsRoutes);
 app.use('/admin', adminRoutes);
 app.use('/auth', authRoutes);
+app.use('/about', aboutRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`);

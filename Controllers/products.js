@@ -11,6 +11,7 @@ module.exports = {
                 loggedIn: loggedIn,
                 username: loggedIn ? req.user.username : null,
                 url: req.baseUrl,
+                role: loggedIn ? req.user.role : null
             });
         } catch (err) {
             console.log(err);
@@ -27,6 +28,7 @@ module.exports = {
                 loggedIn: loggedIn,
                 username: loggedIn ? req.user.username : null,
                 url: req.baseUrl,
+                role: loggedIn ? req.user.role : null
             });
         } catch (err) {
             console.log(err);

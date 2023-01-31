@@ -12,7 +12,7 @@
                 --><a href="/products">
                     <li class="header-link <% if(url === '/products'){ %>active<% } %>">Products</li>
                 </a><!--
-                --><a href="#">
+                --><a href="/about">
                     <li class="header-link <% if(url === '/about'){ %>active<% } %>">About</li>
                 </a>
             </ul>
@@ -27,7 +27,9 @@
                             <%= username %> <i class="fa-solid fa-caret-down"></i>
                         </span>
                         <div id="myDropdown" class="dropdown-content">
-                            <a href="/admin" class="header-link <% if(url === '/admin'){ %>active<% } %>">Admin</a>
+                            <% if(role !== 'User'){ %>
+                                <a href="/admin" class="header-link <% if(url === '/admin'){ %>active<% } %>">Admin</a>
+                                <% } %>
                             <form class="logout-form" action="/auth/logout" method="POST">
                                 <input class="header-link" type="submit" value="Logout">
                             </form>
