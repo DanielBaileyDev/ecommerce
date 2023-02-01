@@ -24,14 +24,14 @@
                 <% } else { %>
                     <div class="dropdown">
                         <span class="header-link dropbtn" onclick="dropDown()">
-                            <%= username %> <i class="fa-solid fa-caret-down"></i>
+                            <%= username %> <i id="dropdown-icon" class="fa-solid fa-caret-down" onclick="dropDown()"></i>
                         </span>
                         <div id="myDropdown" class="dropdown-content">
                             <% if(role !== 'User'){ %>
-                                <a href="/admin" class="header-link <% if(url === '/admin'){ %>active<% } %>">Admin</a>
+                                <a href="/admin" class="header-link dropdown-button">Admin</a>
                                 <% } %>
                             <form class="logout-form" action="/auth/logout" method="POST">
-                                <input class="header-link" type="submit" value="Logout">
+                                <input class="header-link dropdown-button" type="submit" value="Logout">
                             </form>
                         </div>
                     </div>

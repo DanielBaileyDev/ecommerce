@@ -20,6 +20,9 @@ function hideOverlay(e) {
 
 function dropDown() {
   document.getElementById("myDropdown").classList.toggle("show");
+  icon = document.getElementById('dropdown-icon');
+  icon.classList.toggle('fa-caret-down');
+  icon.classList.toggle('fa-caret-up');
 }
 
 window.onclick = function (event) {
@@ -29,6 +32,9 @@ window.onclick = function (event) {
       let openDropdown = dropdowns[i];
       if (openDropdown.classList.contains('show')) {
         openDropdown.classList.remove('show');
+        icon = document.getElementById('dropdown-icon');
+        icon.classList.toggle('fa-caret-down');
+        icon.classList.toggle('fa-caret-up');
       }
     }
   }

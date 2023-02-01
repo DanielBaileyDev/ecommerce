@@ -23,12 +23,19 @@
 <body>
     <%- include('partials/header') -%>
         <section>
-            <div class="bar">
-                <h2>Admin</h2>
-                <a href="" class="button create">New Product</a>
+            <div class="products-nav" >
+                <div class="products-nav-item">
+                    <a href="" class="button create">+ Add Product</a>
+                </div>
+                <div class="products-nav-item">
+                    <h2>Admin</h2>
+                </div>
+                <div class="products-nav-item">
+                    <input type="text" id="search-input" onkeyup="searchProducts()" placeholder="Search Products">
+                </div>
             </div>
-            <input type="text" id="search-input" onkeyup="searchProducts()" placeholder="Search Products">
             <div class="product-container">
+                <% if(products.length> 0){ %>
                 <% products.forEach(product=> { %>
                     <form class="product-form" action="/admin/updateProduct">
                         <div class="product">
@@ -54,6 +61,11 @@
                         </div>
                     </form>
                     <% }) %>
+                    <% }else{ %>
+                        <div class="no-product">
+                            <h4>No Products Available</h4>
+                        </div>
+                        <% } %>
             </div>
         </section>
         <%- include('partials/footer') -%>

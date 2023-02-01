@@ -156,6 +156,16 @@ li{
     background-color: transparent;
 }
 
+.dropdown-button{
+    margin: 0;
+    padding: 10px 20px;
+}
+
+svg {
+    pointer-events: none;
+}
+
+
 /* Main */
 main{
     background: url('/imgs/main-background.jpg');
@@ -260,6 +270,21 @@ footer {
 }
 
 /* Admin */
+.products-nav{
+    display: flex;
+    align-items: center;
+    width: 1000px;
+    text-align: center;
+}
+
+.products-nav-item{
+    flex: 1;
+}
+
+.products-nav-item > input{
+    margin: 0;
+}
+
 .bar{
     position: relative;
     width: 100%;
@@ -269,13 +294,11 @@ footer {
 }
 
 .create{
-    background-color: rgb(53, 187, 91);
-    position: absolute;
-    right: 0;
+    background-color: #64a760;
 }
 
 .create:hover{
-    background-color: rgb(62, 217, 106);
+    background-color: #6cb569;
 }
 
 .image{
@@ -301,21 +324,22 @@ label, .featured{
 }
 
 .save {
-    background-color: rgb(53, 124, 187);
+    background-color: #0077b6;
     flex: 1;
 }
 
 .save:hover{
-    background-color: rgb(65, 151, 227);
+    background-color: #0183ca;
 }
 
 .delete {
-    background-color: rgb(187, 53, 53);
+    margin-left: 10px;
+    background-color: #b90e0a;
     flex: 1;
 }
 
 .delete:hover{
-    background-color: rgb(220, 63, 63);
+    background-color: #c80e0b;
 }
 
 .hidden{
