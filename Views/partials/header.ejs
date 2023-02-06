@@ -1,42 +1,55 @@
 <header>
-    <div class="header-container">
-        <div class="logo">
-            <i class="fa-solid fa-tags logo-icon"></i>
-            <h3>Ecommerce</h3>
-        </div>
-        <nav>
-            <ul>
-                <a href="/">
-                    <li class="header-link <% if(url === ''){ %>active<% } %>">Home</li>
-                </a><!--
-                --><a href="/products">
-                    <li class="header-link <% if(url === '/products'){ %>active<% } %>">Products</li>
-                </a><!--
-                --><a href="/about">
-                    <li class="header-link <% if(url === '/about'){ %>active<% } %>">About</li>
-                </a>
-            </ul>
-        </nav>
-        <div class="login">
-            <% if(!loggedIn){ %>
-                <span class="header-link" onclick="loginOverlay()">Login</span>
-                <span class="header-link" onclick="signUpOverlay()">Sign Up</span>
-                <% } else { %>
-                    <div class="dropdown">
-                        <span class="header-link dropbtn" onclick="dropDown()">
-                            <%= username %> <i id="dropdown-icon" class="fa-solid fa-caret-down" onclick="dropDown()"></i>
-                        </span>
-                        <div id="myDropdown" class="dropdown-content">
-                            <% if(role !== 'User'){ %>
-                                <a href="/admin" class="header-link dropdown-button">Admin</a>
-                                <% } %>
-                            <form class="logout-form" action="/auth/logout" method="POST">
-                                <input class="header-link dropdown-button" type="submit" value="Logout">
-                            </form>
-                        </div>
-                    </div>
-                    <% } %>
-        </div>
+  <div class="header-container">
+    <div class="logo">
+      <i class="fa-solid fa-tags logo-icon"></i>
+      <h3>Ecommerce</h3>
     </div>
+    <nav>
+      <ul>
+        <a href="/" class="header-link <% if(url === ''){ %>active<% } %>">
+          <li>Home</li>
+        </a><!--
+        --><a href="/products" class="header-link <% if(url === '/products'){ %>active<% } %>">
+          <li>Products</li>
+        </a><!--
+        --><a href="/about" class="header-link <% if(url === '/about'){ %>active<% } %>">
+          <li>About</li>
+        </a>
+      </ul>
+    </nav>
+    <div class="login">
+      <% if(!loggedIn){ %>
+      <span class="header-link" onclick="loginOverlay()">Login</span>
+      <span class="header-link" onclick="signUpOverlay()">Sign Up</span>
+      <% } else { %>
+      <div class="dropdown">
+        <span class="header-link dropbtn" onclick="dropDown()">
+          <%= username %> <i id="dropdown-icon" class="fa-solid fa-caret-down" onclick="dropDown()"></i>
+        </span>
+        <div id="myDropdown" class="dropdown-content">
+          <% if(role !=='User' ){ %>
+          <a href="/admin" class="header-link dropdown-button">Admin</a>
+          <% } %>
+          <form class="logout-form" action="/auth/logout" method="POST">
+            <input class="header-link dropdown-button" type="submit" value="Logout">
+          </form>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
 </header>
+<% if (locals.messages.success) { %>
+<% messages.success.forEach( el=> { %>
+<div class="response-message success">
+  <%= el.msg %>
+</div>
+<% }) %>
+<% } else if (locals.messages.fail) { %>
+<% messages.fail.forEach( el=> { %>
+<div class="response-message fail">
+  <%= el.msg %>
+</div>
+<% }) %>
+<% } %>
 <%- include('overlay') -%>

@@ -1,0 +1,30 @@
+/* About */
+.about{
+    font-size: 1.6rem;
+}
+
+.about-content {
+    max-width: 800px;
+}
+
+.about-content a {
+    text-decoration: underline;
+}
+
+.about-content ul {
+    list-style: circle;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.about > h2, .about-content > div {
+    margin-bottom: 10px;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+.p-margin {
+    margin-bottom: 5px;
+}

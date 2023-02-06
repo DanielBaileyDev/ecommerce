@@ -21,7 +21,7 @@ module.exports = {
       validationErrors.push({ msg: 'Passwords do not match' });
 
     if (validationErrors.length) {
-      req.flash('errors', validationErrors);
+      req.flash('fail', validationErrors);
       return res.redirect('back');
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false });
@@ -33,17 +33,12 @@ module.exports = {
       role: 'User',
     });
 
-    User.findOne({
-      $or: [
-        { email: req.body.email },
-        { username: req.body.username }
-      ]
-    }, (err, existingUser) => {
+    User.findOne({ email: req.body.email, }, (err, existingUser) => {
       if (err) {
         return next(err);
       }
       if (existingUser) {
-        req.flash('errors', { msg: 'Account with that email address or username already exists.' });
+        req.flash('fail', { msg: 'Account with that email address or username already exists' });
         return res.redirect('back');
       }
       user.save((err) => {

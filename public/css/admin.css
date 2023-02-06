@@ -1,0 +1,47 @@
+/* Admin */
+.create{
+    background-color: #64a760;
+}
+
+.create:hover{
+    background-color: #6cb569;
+}
+
+.image{
+    cursor: pointer;
+}
+
+label {
+    font-size: 1.6rem;
+}
+
+label, .featured{
+    align-self: start;
+}
+
+.button-container{
+    display: flex;
+}
+
+.save {
+    background-color: #0077b6;
+    flex: 1;
+}
+
+.save:hover{
+    background-color: #0183ca;
+}
+
+.delete {
+    margin-left: 10px;
+    background-color: #b90e0a;
+    flex: 1;
+}
+
+.delete:hover{
+    background-color: #c80e0b;
+}
+
+.hidden{
+    display: none;
+}

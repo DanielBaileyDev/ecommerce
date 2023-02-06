@@ -23,7 +23,7 @@ module.exports = {
             await product.create({
                 img: '/imgs/default.jpg',
                 name: 'Name',
-                price: '$0.00',
+                price: '0.00',
                 featured: false,
             });
             res.status(200).json({ message: "created" })

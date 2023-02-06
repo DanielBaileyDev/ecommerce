@@ -12,6 +12,35 @@ body{
     line-height: 1.5;
 }
 
+h2{
+    font-size: 3rem;
+}
+
+.button{
+    font-size: 1.8rem;
+    color: #F6FFF8;
+    background-color: #6B9080;
+    padding: 10px 20px;
+}
+
+.button:hover{
+    background-color: #A4C3B2;
+}
+
+section{
+    padding: 75px 0;
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+    min-height: 90vh;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    resize: none;
+}
+
 /* Header */
 header{
     background: #6B9080;
@@ -30,10 +59,6 @@ header{
     flex: 1;
 }
 
-.logo > * {
-    display: inline-block;
-}
-
 .logo-icon {
     font-size: 2.4rem;
     color: #A4C3B2;
@@ -43,6 +68,7 @@ h3 {
     font-size: 2.4rem;
     color: #F6FFF8;
     margin: 0 0 0 10px;
+    display: inline-block;
 }
 
 nav{
@@ -50,18 +76,8 @@ nav{
     flex: 2;
 }
 
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
 a {
     text-decoration: none;
-}
-
-li{
-    display: inline-block;
 }
 
 .header-link{
@@ -72,7 +88,7 @@ li{
     display: inline-block;
 }
 
-.header-link:hover, .login > a:hover{
+.header-link:hover{
     color: #CCE3DE;
     cursor: pointer;
 }
@@ -86,23 +102,29 @@ li{
     text-align: right;
 }
 
-.login > a {
-    font-size: 1.8rem;
-    color: #F6FFF8;
+.response-message{
+    font-size: 1.6rem;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.success{
+    color: green;
+}
+
+.fail{
+    color: red;
 }
 
 /* Overlay */
 #overlay {
     position: fixed;
     display: none;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.35);
-    z-index: 2;
 }
 
 .overlay-content{
@@ -116,7 +138,6 @@ li{
 .overlay-form{
     display: flex;
     flex-direction: column;
-    background-color: white;
     padding: 40px;
     background-color: #f1f1f1;
 }
@@ -133,6 +154,14 @@ li{
     margin-bottom: 0;
 }
 
+.close-overlay{
+    top: 10px;
+    right: 15px;
+    position: absolute;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
 /*Drop down*/
 .dropdown {
     position: relative;
@@ -143,7 +172,6 @@ li{
     display: none;
     position: absolute;
     background-color: #79a390;
-    z-index: 1;
 }
 
 .show {
@@ -165,97 +193,11 @@ svg {
     pointer-events: none;
 }
 
-
-/* Main */
-main{
-    background: url('/imgs/main-background.jpg');
-    background-size: cover;
-    min-height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-h1{
-    font-size: 4rem;
-    margin-bottom: 60px;
-}
-
-.button{
-    text-align: center;
-    font-size: 1.8rem;
-    color: #F6FFF8;
-    background-color: #6B9080;
-    padding: 10px 20px;
-}
-
-.button:hover{
-    background-color: #A4C3B2;
-}
-
-/* Featured */
-section{
-    padding: 75px 0;
-    display: flex;
-    align-items: center; 
-    flex-direction: column;
-    min-height: 90vh;
-}
-
-h2{
-    display: inline-block;
-    font-size: 3rem;
-}
-
-.product-container{
-    max-width: 1000px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.product{
-    background-color: #f1f1f1;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-    margin: 25px 25px;
-}
-
-.product > img {
-    width: 250px;
-}
-
-h4{
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 2rem;
-}
-
-.no-product{
-    text-align: center;
-    padding: 10px;
-    margin: 25px 25px;
-}
-
-.no-product h4{
-    margin: 0;
-}
-
-.product > span {
-    margin-bottom: 10px;
-    font-size: 1.8rem;
-}
-
 /* Footer */
 footer {
     color: #F6FFF8;
     background: #6B9080;
     padding: 10px 0;
-    
 }
 
 .footer-container{
@@ -267,173 +209,4 @@ footer {
 
 .footer-container > span{
     font-size: 1.4rem;
-}
-
-/* Admin */
-.products-nav{
-    display: flex;
-    align-items: center;
-    width: 1000px;
-    text-align: center;
-}
-
-.products-nav-item{
-    flex: 1;
-}
-
-.products-nav-item > input{
-    margin: 0;
-}
-
-.bar{
-    position: relative;
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: center;
-    width: 1000px;
-}
-
-.create{
-    background-color: #64a760;
-}
-
-.create:hover{
-    background-color: #6cb569;
-}
-
-.image{
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-textarea, label, input {
-    font-size: 1.6rem;
-    resize: none;
-}
-
-input, textarea {
-    margin-bottom: 10px;
-}
-
-label, .featured{
-    align-self: start;
-}
-
-.button-container{
-    display: flex;
-}
-
-.save {
-    background-color: #0077b6;
-    flex: 1;
-}
-
-.save:hover{
-    background-color: #0183ca;
-}
-
-.delete {
-    margin-left: 10px;
-    background-color: #b90e0a;
-    flex: 1;
-}
-
-.delete:hover{
-    background-color: #c80e0b;
-}
-
-.hidden{
-    display: none;
-}
-
-/* Product Page */
-.product-page-container{
-    max-width: 1000px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.product-page-image{
-    width: 400px;
-    height: fit-content;
-}
-
-.product-info{
-    padding: 10px 20px;
-    width: 400px;
-}
-
-.product-info > h2{
-    margin-bottom: 10px;
-}
-
-.price, form > button{
-    margin-bottom: 10px;
-    font-size: 1.8rem;
-}
-
-.product-info > p{
-    margin-bottom: 10px;
-    font-size: 1.6rem;
-}
-
-.stripe-form{
-    margin-top: 20px;
-    width: 100%;
-}
-
-button.stripe-button-el{
-    background: #6B9080;
-    border-radius: 0;
-    width: 100%;
-    box-shadow: none;
-    margin-bottom: 0;
-}
-
-button.stripe-button-el:hover{
-    background-color: #A4C3B2;
-}
-
-button.stripe-button-el > span{
-    background: none;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    font-weight: normal;
-    box-shadow: none;
-    padding: 3px 10px;
-    height: auto;
-    text-shadow: none;
-}
-
-/* About */
-.about{
-    font-size: 1.6rem;
-}
-
-.about-content {
-    max-width: 800px;
-}
-
-.about-content a {
-    text-decoration: underline;
-}
-
-.about-content ul {
-    list-style: circle;
-    list-style-type: disc;
-    list-style-position: inside;
-}
-
-.about-content li {
-    display:list-item;
-}
-
-.about > h2, .about-content > div {
-    margin-bottom: 10px;
-}
-
-h5 {
-    font-weight: bold;
 }

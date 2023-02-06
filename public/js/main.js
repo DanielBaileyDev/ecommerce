@@ -1,4 +1,7 @@
-document.getElementById("overlay").addEventListener('click', hideOverlay);
+let closeOverlay = document.getElementsByClassName("close-overlay");
+for (let i = 0; i < closeOverlay.length; i++) {
+  closeOverlay[i].addEventListener('click', hideOverlay)
+}
 
 function loginOverlay() {
   document.getElementById("overlay").style.display = "block";
@@ -12,10 +15,8 @@ function signUpOverlay() {
   document.getElementById("sign-up").style.display = "flex";
 }
 
-function hideOverlay(e) {
-  if (!e.target.matches('.overlay-form') && !e.target.matches('.overlay-form *')) {
-    document.getElementById("overlay").style.display = "none";
-  }
+function hideOverlay() {
+  document.getElementById("overlay").style.display = "none";
 }
 
 function dropDown() {
@@ -36,23 +37,6 @@ window.onclick = function (event) {
         icon.classList.toggle('fa-caret-down');
         icon.classList.toggle('fa-caret-up');
       }
-    }
-  }
-}
-
-function searchProducts(){
-  var input, filter, txtValue;
-  input = document.getElementById('search-input');
-  filter = input.value.toUpperCase();
-  products = document.getElementsByClassName("product");
-
-  for(let i = 0; i < products.length; i++){
-    let productName = products[i].getElementsByClassName('product-name')[0];
-    txtValue = productName.textContent || productName.innerText || productName.value;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      products[i].style.display = "";
-    } else {
-      products[i].style.display = "none";
     }
   }
 }

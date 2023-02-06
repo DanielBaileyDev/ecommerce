@@ -1,0 +1,54 @@
+/* Product Page */
+.product-page-image{
+    width: 400px;
+    height: fit-content;
+}
+
+.product-info{
+    padding: 10px 20px;
+    width: 400px;
+}
+
+.product-info > h2{
+    margin-bottom: 10px;
+}
+
+.price, form > button{
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.product-info > p{
+    font-size: 1.6rem;
+}
+
+.stripe-form{
+    margin-top: 30px;
+    width: 100%;
+}
+
+button.stripe-button-el{
+    background: #6B9080;
+    border-radius: 0;
+    width: 100%;
+    box-shadow: none;
+    margin-bottom: 0;
+}
+
+button.stripe-button-el:hover, button.stripe-button-el:not(:disabled):active , button.stripe-button-el:not(:disabled):active span{
+    background: #A4C3B2;
+    color: white;
+    box-shadow: none;
+}
+
+button.stripe-button-el > span{
+    background: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    box-shadow: none;
+    padding: 3px 10px;
+    height: auto;
+    text-shadow: none;
+}

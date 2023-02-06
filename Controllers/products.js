@@ -1,6 +1,10 @@
 const product = require('../Models/product');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
+function dollarsToCents(s) {
+    return String(s).replace(/[^0-9]+/g, "");
+}
+
 module.exports = {
     getProducts: async (req, res) => {
         try {
@@ -28,40 +32,46 @@ module.exports = {
                 loggedIn: loggedIn,
                 username: loggedIn ? req.user.username : null,
                 url: req.baseUrl,
-                role: loggedIn ? req.user.role : null
+                role: loggedIn ? req.user.role : null,
+                publicKey: process.env.STRIPE_PUBLISHABLE_KEY,
+                stripeValue: products ? dollarsToCents(products.price) : null,
             });
         } catch (err) {
             console.log(err);
         }
     },
     postPayment: async (req, res) => {
-        // Moreover you can take more details from user
-        // like Address, Name, etc from form
-        stripe.customers.create({
-            email: req.body.stripeEmail,
-            source: req.body.stripeToken,
-            /*name: 'Gourav Hammad',
-            address: {
-                line1: 'TC 9/4 Old MES colony',
-                postal_code: '452331',
-                city: 'Indore',
-                state: 'Madhya Pradesh',
-                country: 'India',
-            }*/
-        })
-            .then((customer) => {
-                return stripe.charges.create({
-                    amount: 2500,
-                    description: 'Web Development Product',
-                    currency: 'aud',
-                    customer: customer.id
-                });
-            })
-            .then((charge) => {
-                res.send("Success");
-            })
-            .catch((err) => {
-                res.send(err);
+        try {
+            const products = await product.findOne({
+                _id: req.params.id
             });
+            if (products) {
+                stripe.customers.create({
+                    email: req.body.stripeEmail,
+                    source: req.body.stripeToken,
+                })
+                    .then((customer) => {
+                        return stripe.charges.create({
+                            amount: dollarsToCents(products.price),
+                            description: products.name,
+                            currency: 'aud',
+                            customer: customer.id
+                        });
+                    })
+                    .then((_) => {
+                        req.flash('success', { msg: 'Purchase successful' });
+                        res.redirect('back');
+                    })
+                    .catch((err) => {
+                        res.send(err);
+                    });
+            } else {
+                console.log("Product doesn't exist");
+                req.flash('fail', { msg: 'Purchase failed' });
+                res.redirect('back');
+            }
+        } catch (err) {
+            console.log(err);
+        }
     }
 };

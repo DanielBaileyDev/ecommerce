@@ -2,50 +2,54 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <script src="/fontawesome/fontawesome.js"></script>
-    <script src="/fontawesome/solid.js"></script>
+  <!-- Font Awesome -->
+  <script src="/fontawesome/fontawesome.js"></script>
+  <script src="/fontawesome/solid.js"></script>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/productSection.css">
+  <link rel="stylesheet" href="/css/productPage.css">
 </head>
 
 <body>
-    <%- include('partials/header') -%>
-        <section>
-            <div class="product-page-container">
-                <img class="product-page-image" src="<%= product.img %>">
-                <section class="product-info">
-                    <h2>
-                        <%= product.name %>
-                            </h4>
-                            <span class="price">
-                                <%= product.price %>
-                            </span>
-                            <p><%= product.description %></p>
-                            <form class="stripe-form" action="payment" method="POST">
-                                <script src="//checkout.stripe.com/v2/checkout.js" class="stripe-button"
-                                    data-key="pk_test_51MRv0tFecsPiqRmb4ewKRMSbPh0znYmSmBJxEcdI5pF8Efc4a9omHy4odjtT4M2CpLTcUdRp5A0BbGPYGMgvkdlW00ke3K85AZ"
-                                    data-amount="2500" data-currency="aud" data-name="Crafty Gourav"
-                                    data-description="Handmade Art and Craft Products" data-locale="auto">
-                                    </script>
-                            </form>
-                            <!-- <h4>This Product Doesn't Exist</h4> -->
-                </section>
-            </div>
-        </section>
-        <%- include('partials/footer') -%>
-            <script src="/js/main.js"></script>
+  <%- include('partials/header') -%>
+  <section>
+    <div class="product-container">
+      <% if(product){ %>
+      <img class="product-page-image" src="<%= product.img %>">
+      <section class="product-info">
+        <h2>
+          <%= product.name %>
+        </h2>
+        <span class="price">
+          <%= product.price %>
+        </span>
+        <p>
+          <%= product.description %>
+        </p>
+        <form class="stripe-form" action="payment/<%= product._id %>" method="POST">
+          <script src="//checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="<%= publicKey %>" data-amount="<%= stripeValue %>" data-currency="aud" data-name="<%= product.name %>" data-description="<%= product.description %>" data-locale="auto">
+          </script>
+        </form>
+      </section>
+      <% }else{ %>
+      <h2>This Product Doesn't Exist</h2>
+      <% } %>
+    </div>
+  </section>
+  <%- include('partials/footer') -%>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>
