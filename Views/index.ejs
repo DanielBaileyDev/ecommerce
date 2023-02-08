@@ -2,57 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <script src="/fontawesome/fontawesome.js"></script>
-    <script src="/fontawesome/solid.js"></script>
+  <!-- Font Awesome -->
+  <script src="/fontawesome/fontawesome.js"></script>
+  <script src="/fontawesome/solid.js"></script>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/productSection.css">
-    <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/productSection.css">
+  <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>
-    <%- include('partials/header') -%>
-        <main>
-            <h1>Welcome to Ecommerce</h1>
-            <a href="/products" class="button">View Products</a>
-        </main>
-        <section>
-            <h2>Featured</h2>
-            <div class="product-container">
-                <% if(products.length> 0){ %>
-                    <% products.forEach(product=> { %>
-                        <div class="product">
-                            <img src="<%= product.img %>">
-                            <h4>
-                                <%= product.name %>
-                            </h4>
-                            <span>
-                                <%= product.price %>
-                            </span>
-                            <a href="products/<%= product._id %>" class="button">View</a>
-                        </div>
-                        <% }) %>
-                            <% }else{ %>
-                                <div class="no-product">
-                                    <h4>No Featured Products Available</h4>
-                                </div>
-                                <% } %>
-            </div>
-        </section>
-        <%- include('partials/footer') -%>
-            <script src="/js/main.js"></script>
+  <%- include('partials/header') -%>
+  <main>
+    <h1>Welcome to Ecommerce</h1>
+    <a href="/products" class="button">View Products</a>
+  </main>
+  <section>
+    <h2>Featured</h2>
+    <div class="product-container">
+      <% if(products.length> 0){ %>
+      <% products.forEach(product=> { %>
+      <div class="product">
+        <img src="<%= product.img %>">
+        <h4>
+          <%= product.name %>
+        </h4>
+        <span>
+          <%= product.price %>
+        </span>
+        <a href="products/<%= product._id %>" class="button">View</a>
+      </div>
+      <% }) %>
+      <% }else{ %>
+      <div class="no-product">
+        <h4>No Featured Products Available</h4>
+      </div>
+      <% } %>
+    </div>
+  </section>
+  <%- include('partials/footer') -%>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

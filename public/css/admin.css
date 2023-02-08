@@ -1,13 +1,13 @@
 /* Admin */
-.create{
+.create {
     background-color: #64a760;
 }
 
-.create:hover{
+.create:hover {
     background-color: #6cb569;
 }
 
-.image{
+.image {
     cursor: pointer;
 }
 
@@ -15,11 +15,11 @@ label {
     font-size: 1.6rem;
 }
 
-label, .featured{
+label, .featured {
     align-self: start;
 }
 
-.button-container{
+.button-container {
     display: flex;
 }
 
@@ -28,7 +28,7 @@ label, .featured{
     flex: 1;
 }
 
-.save:hover{
+.save:hover {
     background-color: #0183ca;
 }
 
@@ -38,10 +38,10 @@ label, .featured{
     flex: 1;
 }
 
-.delete:hover{
+.delete:hover {
     background-color: #c80e0b;
 }
 
-.hidden{
+.hidden {
     display: none;
 }

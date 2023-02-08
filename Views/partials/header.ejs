@@ -1,6 +1,6 @@
 <header>
   <div class="header-container">
-    <div class="logo">
+    <div class="logo header-first">
       <i class="fa-solid fa-tags logo-icon"></i>
       <h3>Ecommerce</h3>
     </div>
@@ -19,14 +19,38 @@
     </nav>
     <div class="login">
       <% if(!loggedIn){ %>
-      <span class="header-link" onclick="loginOverlay()">Login</span>
-      <span class="header-link" onclick="signUpOverlay()">Sign Up</span>
+      <div class="large">
+        <span class="header-link" onclick="loginOverlay()">Login</span>
+        <span class="header-link" onclick="signUpOverlay()">Sign Up</span>
+      </div>
+      <div class="dropdown small">
+        <span class="header-link dropbtn" onclick="dropDown()">
+          <i class="fa-solid fa-bars" onclick="dropDown()"></i>
+        </span>
+        <div class="dropdown-content">
+          <span class="header-link dropdown-button" onclick="loginOverlay()">Login</span>
+          <span class="header-link dropdown-button" onclick="signUpOverlay()">Sign Up</span>
+        </div>
+      </div>
       <% } else { %>
-      <div class="dropdown">
+      <div class="dropdown large">
         <span class="header-link dropbtn" onclick="dropDown()">
           <%= username %> <i id="dropdown-icon" class="fa-solid fa-caret-down" onclick="dropDown()"></i>
         </span>
-        <div id="myDropdown" class="dropdown-content">
+        <div class="dropdown-content">
+          <% if(role !=='User' ){ %>
+          <a href="/admin" class="header-link dropdown-button">Admin</a>
+          <% } %>
+          <form class="logout-form" action="/auth/logout" method="POST">
+            <input class="header-link dropdown-button" type="submit" value="Logout">
+          </form>
+        </div>
+      </div>
+      <div class="dropdown small">
+        <span class="header-link dropbtn" onclick="dropDown()">
+          <i class="fa-solid fa-bars" onclick="dropDown()"></i>
+        </span>
+        <div class="dropdown-content">
           <% if(role !=='User' ){ %>
           <a href="/admin" class="header-link dropdown-button">Admin</a>
           <% } %>

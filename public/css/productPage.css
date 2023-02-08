@@ -1,33 +1,33 @@
 /* Product Page */
-.product-page-image{
+.product-page-image {
     width: 400px;
     height: fit-content;
 }
 
-.product-info{
+.product-info {
     padding: 10px 20px;
     width: 400px;
 }
 
-.product-info > h2{
+.product-info>h2 {
     margin-bottom: 10px;
 }
 
-.price, form > button{
+.price, form>button {
     margin-bottom: 10px;
     font-size: 1.8rem;
 }
 
-.product-info > p{
+.product-info>p {
     font-size: 1.6rem;
 }
 
-.stripe-form{
+.stripe-form {
     margin-top: 30px;
     width: 100%;
 }
 
-button.stripe-button-el{
+button.stripe-button-el {
     background: #6B9080;
     border-radius: 0;
     width: 100%;
@@ -35,13 +35,13 @@ button.stripe-button-el{
     margin-bottom: 0;
 }
 
-button.stripe-button-el:hover, button.stripe-button-el:not(:disabled):active , button.stripe-button-el:not(:disabled):active span{
+button.stripe-button-el:hover, button.stripe-button-el:not(:disabled):active, button.stripe-button-el:not(:disabled):active span {
     background: #A4C3B2;
     color: white;
     box-shadow: none;
 }
 
-button.stripe-button-el > span{
+button.stripe-button-el>span {
     background: none;
     color: white;
     font-family: 'Open Sans', sans-serif;

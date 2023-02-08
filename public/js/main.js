@@ -20,7 +20,10 @@ function hideOverlay() {
 }
 
 function dropDown() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  let dropdowns = document.getElementsByClassName("dropdown-content");
+  for (let i = 0; i < dropdowns.length; i++) {
+    dropdowns[i].classList.toggle("show");
+  }
   icon = document.getElementById('dropdown-icon');
   icon.classList.toggle('fa-caret-down');
   icon.classList.toggle('fa-caret-up');

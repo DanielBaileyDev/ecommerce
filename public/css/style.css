@@ -2,37 +2,38 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     font-size: 62.5%;
 }
 
-body{
+body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     line-height: 1.5;
 }
 
-h2{
+h2 {
     font-size: 3rem;
 }
 
-.button{
+.button {
     font-size: 1.8rem;
     color: #F6FFF8;
     background-color: #6B9080;
     padding: 10px 20px;
 }
 
-.button:hover{
+.button:hover {
     background-color: #A4C3B2;
 }
 
-section{
-    padding: 75px 0;
+section {
+    padding: 50px 10px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     flex-direction: column;
     min-height: 90vh;
+    min-width: 350px;
 }
 
 input, textarea {
@@ -42,12 +43,14 @@ input, textarea {
 }
 
 /* Header */
-header{
+header {
     background: #6B9080;
     padding: 10px 0;
+    min-width: 350px;
+    user-select: none;
 }
 
-.header-container{
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,13 +58,14 @@ header{
     margin: auto;
 }
 
-.logo{
+.logo {
     flex: 1;
 }
 
 .logo-icon {
     font-size: 2.4rem;
     color: #A4C3B2;
+    margin-left: 10px;
 }
 
 h3 {
@@ -71,16 +75,12 @@ h3 {
     display: inline-block;
 }
 
-nav{
+nav {
     text-align: center;
     flex: 2;
 }
 
-a {
-    text-decoration: none;
-}
-
-.header-link{
+.header-link {
     font-size: 1.8rem;
     color: #F6FFF8;
     padding: 10px 5px;
@@ -88,31 +88,80 @@ a {
     display: inline-block;
 }
 
-.header-link:hover{
+.header-link:hover {
     color: #CCE3DE;
     cursor: pointer;
 }
 
-.active{
-    border-bottom: 2px solid #F6FFF8;
-}
-
-.login{
+.login {
     flex: 1;
     text-align: right;
 }
 
-.response-message{
+div.small {
+    display: none;
+}
+
+.dropdown-content>* {
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 800px) {
+    .dropdown-content {
+        right: 0;
+    }
+
+    .small {
+        text-align: center;
+    }
+
+    .header-first {
+        display: none;
+    }
+
+    .login {
+        flex: auto;
+    }
+
+    nav {
+        flex: auto;
+        text-align: left;
+    }
+
+    .header-container {
+        margin: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    div.small {
+        display: inline-block;
+    }
+
+    div.large {
+        display: none;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.active {
+    border-bottom: 2px solid #F6FFF8;
+}
+
+.response-message {
     font-size: 1.6rem;
     padding: 10px 0;
     text-align: center;
 }
 
-.success{
+.success {
     color: green;
 }
 
-.fail{
+.fail {
     color: red;
 }
 
@@ -124,37 +173,37 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.35);
+    background-color: rgba(0, 0, 0, 0.35);
 }
 
-.overlay-content{
+.overlay-content {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }
 
-.overlay-form{
+.overlay-form {
     display: flex;
     flex-direction: column;
     padding: 40px;
     background-color: #f1f1f1;
 }
 
-.overlay-form h2{
+.overlay-form h2 {
     margin-bottom: 10px;
     text-align: center;
 }
 
-.overlay-button{
+.overlay-button {
     outline: none;
     border: 0;
     background-color: #6B9080;
     margin-bottom: 0;
 }
 
-.close-overlay{
+.close-overlay {
     top: 10px;
     right: 15px;
     position: absolute;
@@ -167,7 +216,7 @@ a {
     position: relative;
     display: inline-block;
 }
-  
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -178,13 +227,13 @@ a {
     display: block;
 }
 
-.logout-form input{
+.logout-form input {
     outline: none;
     border: 0;
     background-color: transparent;
 }
 
-.dropdown-button{
+.dropdown-button {
     margin: 0;
     padding: 10px 20px;
 }
@@ -198,15 +247,17 @@ footer {
     color: #F6FFF8;
     background: #6B9080;
     padding: 10px 0;
+    min-width: 350px;
 }
 
-.footer-container{
-    width: 1200px;
+.footer-container {
+    max-width: 1200px;
     display: flex;
     justify-content: end;
     margin: auto;
 }
 
-.footer-container > span{
+.footer-container>span {
     font-size: 1.4rem;
+    margin-right: 10px;
 }
