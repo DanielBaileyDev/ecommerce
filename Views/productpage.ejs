@@ -16,6 +16,11 @@
   <script src="/fontawesome/fontawesome.js"></script>
   <script src="/fontawesome/solid.js"></script>
 
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <script src="/js/productpage.js" defer></script>
+
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/productSection.css">
@@ -38,10 +43,28 @@
         <p>
           <%= product.description %>
         </p>
-        <form class="stripe-form" action="payment/<%= product._id %>" method="POST">
-          <script src="//checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="<%= publicKey %>" data-amount="<%= stripeValue %>" data-currency="aud" data-name="<%= product.name %>" data-description="<%= product.description %>" data-locale="auto">
-          </script>
-        </form>
+        <span class="button pay-overlay-button" onclick="paymentOverlay()">Buy Now</span>
+        <div id="payment-overlay">
+          <form id="payment-form" class="overlay-form overlay-content" data-id="<%= product._id %>">
+            <h2>Payment</h2>
+
+            <span class="payment-info">
+              <%= product.name %>: <%= product.price %>
+            </span>
+            <div class="close-overlay" onclick="hideOverlay('payment-overlay')">
+              <i class="fa-solid fa-xmark overlay-icon"></i>
+            </div>
+            <div id="link-authentication-element">
+            </div>
+            <div id="payment-element">
+            </div>
+            <button id="submit">
+              <div class="spinner hidden" id="spinner"></div>
+              <span id="button-text">Pay now</span>
+            </button>
+            <div id="payment-message" class="hidden"></div>
+          </form>
+        </div>
       </section>
       <% }else{ %>
       <h2>This Product Doesn't Exist</h2>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="/fontawesome/fontawesome.js"></script>
+  <script src="/fontawesome/solid.js"></script>
+
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <script src="/js/paymentstatus.js" defer></script>
+
+  <link rel="stylesheet" href="/css/paymentstatus.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <%- include('partials/header') -%>
+  <section>
+    <div class="status-container">
+      <h2>Purchase</h2>
+      <span id="payment-message" class="success response-message"></span>
+      <% if (purchaseID) { %>
+      <p>Purchase ID: <%= purchaseID %></p>
+      <% } else { %>
+      <p>Purchase ID: Not available try again</p>
+      <% } %>
+      <a class="button" href="/">Return Home</a>
+    </div>
+  </section>
+  <%- include('partials/footer') -%>
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

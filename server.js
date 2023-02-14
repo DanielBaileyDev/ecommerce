@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const indexRoutes = require('./Routes/index');
+const paymentStatusRoutes = require('./Routes/paymentstatus');
 const productsRoutes = require('./Routes/products');
 const aboutRoutes = require('./Routes/about');
 const adminRoutes = require('./Routes/admin');
@@ -35,6 +36,7 @@ app.use(passport.session());
 app.use(flash());
 
 app.use('/', indexRoutes);
+app.use('/paymentstatus', paymentStatusRoutes);
 app.use('/products', productsRoutes);
 app.use('/admin', adminRoutes);
 app.use('/auth', authRoutes);

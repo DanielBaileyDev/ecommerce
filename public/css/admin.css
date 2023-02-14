@@ -1,4 +1,3 @@
-/* Admin */
 .create {
     background-color: #64a760;
 }
@@ -40,8 +39,4 @@ label, .featured {
 
 .delete:hover {
     background-color: #c80e0b;
-}
-
-.hidden {
-    display: none;
 }

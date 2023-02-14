@@ -4,7 +4,7 @@ module.exports = {
             return next();
         } else {
             req.flash('fail', { msg: 'Please login' });
-            return res.redirect('/');
+            res.redirect('/');
         }
     },
     hasPermission: (req, res, next) => {
@@ -12,7 +12,7 @@ module.exports = {
             return next();
         } else {
             req.flash('fail', { msg: 'Permission denied' });
-            return res.redirect('back');
+            res.redirect('/');
         }
     },
     isAdmin: (req, res, next) => {
@@ -20,7 +20,7 @@ module.exports = {
             return next();
         } else {
             req.flash('fail', { msg: 'Permission denied' });
-            return res.redirect('back');
+            res.status(200).json({ message: "failed" });
         }
     }
 }

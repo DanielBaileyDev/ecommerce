@@ -1,7 +1,7 @@
 <div id="overlay">
   <section id="login">
     <form class="overlay-form overlay-content" action="/auth/login" method="POST">
-      <div class="close-overlay">
+      <div class="close-overlay" onclick="hideOverlay('overlay')">
         <i class="fa-solid fa-xmark overlay-icon"></i>
       </div>
       <h2>Login</h2>
@@ -12,7 +12,7 @@
   </section>
   <section id="sign-up">
     <form class="overlay-form overlay-content" action="/auth/signup" method="post">
-      <div class="close-overlay">
+      <div class="close-overlay" onclick="hideOverlay('overlay')">
         <i class="fa-solid fa-xmark"></i>
       </div>
       <h2>Sign Up</h2>

@@ -45,31 +45,18 @@ module.exports = {
             const products = await product.findOne({
                 _id: req.params.id
             });
-            if (products) {
-                stripe.customers.create({
-                    email: req.body.stripeEmail,
-                    source: req.body.stripeToken,
-                })
-                    .then((customer) => {
-                        return stripe.charges.create({
-                            amount: dollarsToCents(products.price),
-                            description: products.name,
-                            currency: 'aud',
-                            customer: customer.id
-                        });
-                    })
-                    .then((_) => {
-                        req.flash('success', { msg: 'Purchase successful' });
-                        res.redirect('back');
-                    })
-                    .catch((err) => {
-                        res.send(err);
-                    });
-            } else {
-                console.log("Product doesn't exist");
-                req.flash('fail', { msg: 'Purchase failed' });
-                res.redirect('back');
-            }
+
+            const paymentIntent = await stripe.paymentIntents.create({
+                amount: dollarsToCents(products.price),
+                currency: "aud",
+                automatic_payment_methods: {
+                    enabled: true,
+                },
+            });
+
+            res.send({
+                clientSecret: paymentIntent.client_secret,
+            });
         } catch (err) {
             console.log(err);
         }

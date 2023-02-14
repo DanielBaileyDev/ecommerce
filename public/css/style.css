@@ -16,14 +16,15 @@ h2 {
     font-size: 3rem;
 }
 
-.button {
+.button, #submit {
     font-size: 1.8rem;
     color: #F6FFF8;
     background-color: #6B9080;
     padding: 10px 20px;
+    cursor: pointer;
 }
 
-.button:hover {
+.button:hover, #submit:hover {
     background-color: #A4C3B2;
 }
 
@@ -40,6 +41,24 @@ input, textarea {
     margin-bottom: 10px;
     font-size: 1.6rem;
     resize: none;
+}
+
+.response-message {
+    font-size: 1.6rem;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.success {
+    color: green;
+}
+
+.fail {
+    color: red;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Header */
@@ -151,22 +170,8 @@ a {
     border-bottom: 2px solid #F6FFF8;
 }
 
-.response-message {
-    font-size: 1.6rem;
-    padding: 10px 0;
-    text-align: center;
-}
-
-.success {
-    color: green;
-}
-
-.fail {
-    color: red;
-}
-
 /* Overlay */
-#overlay {
+#overlay, #payment-overlay {
     position: fixed;
     display: none;
     top: 0;
@@ -189,6 +194,7 @@ a {
     flex-direction: column;
     padding: 40px;
     background-color: #f1f1f1;
+    min-width: 350px;
 }
 
 .overlay-form h2 {
@@ -196,7 +202,7 @@ a {
     text-align: center;
 }
 
-.overlay-button {
+.overlay-button, #submit {
     outline: none;
     border: 0;
     background-color: #6B9080;

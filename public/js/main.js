@@ -1,8 +1,3 @@
-let closeOverlay = document.getElementsByClassName("close-overlay");
-for (let i = 0; i < closeOverlay.length; i++) {
-  closeOverlay[i].addEventListener('click', hideOverlay)
-}
-
 function loginOverlay() {
   document.getElementById("overlay").style.display = "block";
   document.getElementById("login").style.display = "flex";
@@ -15,8 +10,12 @@ function signUpOverlay() {
   document.getElementById("sign-up").style.display = "flex";
 }
 
-function hideOverlay() {
-  document.getElementById("overlay").style.display = "none";
+function paymentOverlay() {
+  document.getElementById("payment-overlay").style.display = "block";
+}
+
+function hideOverlay(id) {
+  document.getElementById(id).style.display = "none";
 }
 
 function dropDown() {
@@ -34,12 +33,10 @@ window.onclick = function (event) {
     let dropdowns = document.getElementsByClassName("dropdown-content");
     for (let i = 0; i < dropdowns.length; i++) {
       let openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-        icon = document.getElementById('dropdown-icon');
-        icon.classList.toggle('fa-caret-down');
-        icon.classList.toggle('fa-caret-up');
-      }
+      openDropdown.classList.remove('show');
     }
+    icon = document.getElementById('dropdown-icon');
+    icon.classList.remove('fa-caret-up');
+    icon.classList.add('fa-caret-down');
   }
 }

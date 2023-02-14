@@ -1,12 +1,17 @@
-/* Product Page */
 .product-page-image {
-    width: 400px;
     height: fit-content;
+    width: 400px;
 }
 
 .product-info {
     padding: 10px 20px;
     width: 400px;
+}
+
+@media only screen and (max-width: 850px) {
+    .product-page-image, .product-info {
+        width: 350px;
+    }
 }
 
 .product-info>h2 {
@@ -22,33 +27,85 @@
     font-size: 1.6rem;
 }
 
-.stripe-form {
+.pay-overlay-button {
     margin-top: 30px;
     width: 100%;
+    text-align: center;
 }
 
-button.stripe-button-el {
-    background: #6B9080;
-    border-radius: 0;
-    width: 100%;
-    box-shadow: none;
-    margin-bottom: 0;
+.payment-info {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
 }
 
-button.stripe-button-el:hover, button.stripe-button-el:not(:disabled):active, button.stripe-button-el:not(:disabled):active span {
-    background: #A4C3B2;
-    color: white;
-    box-shadow: none;
+#payment-form iframe {
+    margin-bottom: 10px !important;
 }
 
-button.stripe-button-el>span {
-    background: none;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    font-weight: normal;
-    box-shadow: none;
-    padding: 3px 10px;
-    height: auto;
-    text-shadow: none;
+#payment-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.spinner,
+.spinner:after {
+    border-radius: 50%;
+}
+
+.spinner {
+    color: #ffffff;
+    font-size: 22px;
+    text-indent: -99999px;
+    margin: 0px auto;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    box-shadow: inset 0 0 0 2px;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.spinner:after {
+    position: absolute;
+    content: "";
+}
+
+.spinner:after {
+    width: 10.4px;
+    height: 10.2px;
+    background: #f1f1f1;
+    top: -0.1px;
+    left: 10.2px;
+    -webkit-transform-origin: 0px 10.2px;
+    transform-origin: 0px 10.2px;
+    -webkit-animation: loading 2s infinite ease;
+    animation: loading 2s infinite ease;
+}
+
+@-webkit-keyframes loading {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loading {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }

@@ -10,7 +10,7 @@ async function createProduct() {
     try {
         await fetch('admin/createProduct', {
             method: 'post',
-        }).then((res) => { res.json() }).then(res => location.reload());
+        }).then(res => location.reload());
     } catch (err) {
         console.log(err);
     }
@@ -25,7 +25,7 @@ async function deleteProduct(e) {
             body: JSON.stringify({
                 _id: id
             })
-        }).then((res) => { res.json() }).then(res => location.reload());
+        }).then(res => location.reload());
     } catch (err) {
         console.log(err)
     }
