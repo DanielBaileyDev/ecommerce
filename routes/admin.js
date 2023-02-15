@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const adminController = require('../Controllers/admin');
+const adminController = require('../controllers/admin');
 const { ensureAuth, hasPermission, isAdmin } = require('../config/ensureauth');
 const multer = require('multer');
 const path = require('path');

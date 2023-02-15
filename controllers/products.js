@@ -1,4 +1,4 @@
-const product = require('../Models/product');
+const product = require('../models/product');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 function dollarsToCents(s) {

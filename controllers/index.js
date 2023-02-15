@@ -1,4 +1,4 @@
-const product = require('../Models/product');
+const product = require('../models/product');
 
 module.exports = {
     getFeatured: async (req, res) => {
